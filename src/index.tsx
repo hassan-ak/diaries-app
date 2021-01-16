@@ -14,7 +14,7 @@ import store from "./store";
 import App from './App';
 
 // Initilize server
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'production') {
   setupServer();
 }
 
