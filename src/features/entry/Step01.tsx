@@ -27,6 +27,7 @@ export const Step01: React.FC<Props> = ({ submit, setFormValues,prevValues,updat
                 validationSchema={Yup.object({
                     title: Yup.string()
                         .min(3, 'Must be 3 characters or more')
+                        .max(15, 'Must be 15 characters or less')
                         .required('Title is required'),
                     content: Yup.string()
                         .min(3, 'Must be 3 characters or more')

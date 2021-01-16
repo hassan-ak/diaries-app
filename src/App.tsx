@@ -12,9 +12,11 @@ import './App.css';
 // Component Imports
 import Header from './components/Header';
 import { Loader } from "./components/Loader";
+import { Cat } from "./features/diary/Cat";
 import Footer from './components/Footer';
 const Auth = lazy(() => import("./features/auth/Auth"));
 const Home = lazy(() => import("./features/home/Home"));
+const DiaryEntriesList = lazy(() => import("./features/diary/DiaryEntriesList"));
 
 function App() {
   // check if the user is loged in by checking authentication
@@ -33,6 +35,9 @@ function App() {
             </Suspense>
           }
         />
+        <Route path="diary" element={<Cat />}>
+          <Route path=":id" element={<Suspense fallback={<Loader/>}><DiaryEntriesList/></Suspense>}/>
+        </Route>
       </Routes>
       <Footer />
     </div>
