@@ -18,3 +18,75 @@ body{
     text-align: center;
     color: white;
 }
+
+/* Authantication Page */
+.slContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 75vh;
+}
+.steperContainer{
+    width: 600px;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+    margin-top: 10px;
+}
+.formControl{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+}
+.fieldsDiv{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    height: 50px;
+}
+.fields{
+    width: 100%;
+}
+.error{
+    color: red;
+}
+.btnDiv{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+.buttonN{
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    width: 50%;
+}
+/* Media Queries */
+@media(max-width: 700px){
+    .steperContainer{
+        width: 450px;
+    }
+}
+@media(max-width: 500px){
+    .steperContainer{
+        width: 300px;
+    }
+    .formControl{
+        width: 250px;
+    }
+    .email{
+        margin-top: 30px;
+    }
+}
+@media(max-width: 300px){
+    .steperContainer{
+        width: 275px;
+    }
+    .formControl{
+        width: 250px;
+    }
+}
