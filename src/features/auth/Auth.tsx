@@ -29,7 +29,7 @@ const initialValues: User = {
 }
 
 // Authentication form
-export const Auth: FC = () => {
+const Auth: FC = () => {
     // use states for login and setup
     const [isLogin, setIsLogin] = useState(true);
     // use displatch to use store functions
@@ -150,3 +150,5 @@ export const Auth: FC = () => {
         </div >
     )
 }
+
+export default Auth;
