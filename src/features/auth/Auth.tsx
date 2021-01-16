@@ -1,6 +1,6 @@
 // Imports
 // React Imports
-import React, { FC, useState, useRef} from 'react';
+import React, { FC, useState} from 'react';
 // Formik Imports
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 // Yup imports
@@ -36,9 +36,6 @@ const Auth: FC = () => {
     const dispatch = useAppDispatch();
     // check for loading
     const [loading, setLoading] = useState(false);
-    let userNameInput : any | null = useRef(null);
-    let passwordInput : any | null = useRef(null);
-    let emailInput : any | null = useRef(null);
     return (
         <div className="slContainer">
             <div className="steperContainer">
@@ -96,7 +93,6 @@ const Auth: FC = () => {
                                 name="username"
                                 label="UserName *"
                                 autoComplete="off"
-                                inputRef={userNameInput}
                                 helperText={<ErrorMessage name="username">{msg => <span className="error">{msg}</span>}</ErrorMessage>}
                             />
                         </div>
@@ -109,7 +105,6 @@ const Auth: FC = () => {
                                 name="password"
                                 label="Password *"
                                 autoComplete="off"
-                                inputRef={passwordInput}
                                 helperText={<ErrorMessage name="password">{msg => <span className="error">{msg}</span>}</ErrorMessage>}
                             />
                         </div>
@@ -123,7 +118,6 @@ const Auth: FC = () => {
                                     name="email"
                                     label="Email (optional)"
                                     autoComplete="off"
-                                    inputRef={emailInput}
                                     helperText={<ErrorMessage name="email">{msg => <span className="error">{msg}</span>}</ErrorMessage>}
                                 />
                             </div>
