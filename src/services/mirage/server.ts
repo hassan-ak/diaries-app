@@ -1,6 +1,8 @@
 // Imports
 // Mirage Imports
 import { Server, Model, Factory, Response, belongsTo, hasMany } from "miragejs";
+// Functions inports for routing
+import user from "./routes/user";
 
 // Function to catch error in case of Error Response
 export const handleErrors = (error: any, message = "An error ocurred") => {
@@ -48,7 +50,12 @@ export const setupServer = (env?: string): Server => {
 
     // Handle request here urlPrefix is dummy Api
     routes(): void {
-      this.urlPrefix = "https://diaries.app";
+        // Base Url
+        this.urlPrefix = "https://diaries.app";
+
+        // Url for signup and login
+      this.post("/auth/login", user.login);
+      this.post("/auth/signup", user.signup);
     },
   });
 };
