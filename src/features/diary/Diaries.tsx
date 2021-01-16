@@ -24,6 +24,8 @@ import { setUser } from '../auth/userSlice';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 // Yup imports
 import * as Yup from 'yup';
+// Component Imports
+import DiaryTile from './DiaryTile';
 
 // initial Values Declaration
 const initialValues: Diary = {
@@ -72,6 +74,11 @@ export const Diaries = () => {
                                 Create New Diary
                             </Button>
                         </div>
+                        {diaries.map((diary, idx) => (
+                            diary.type === 'public' || diary.userId === user?.id ?
+                                <DiaryTile key={idx} diary={diary} />
+                            : null
+                        ))}
                     </div>
                 </div>
             :
