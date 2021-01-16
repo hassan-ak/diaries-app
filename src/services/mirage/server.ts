@@ -18,7 +18,7 @@ export const handleErrors = (error: any, message = "An error ocurred") => {
 // Setup Mock server to use data in the app
 export const setupServer = (env?: string): Server => {
     return new Server({
-        environment: env ?? "production",
+        environment: env ?? "development",
 
         // models to define properties of different data to be stored in the database on mock server
         // .extend() adds different properties to the perticular data. while many/belongs relations are defined here
