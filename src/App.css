@@ -213,3 +213,53 @@ body{
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(16, 109, 101); 
 }
+
+
+/* Editor */
+.aEContainer{
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 70vh;
+    padding: none;
+}
+.steperContainer1{
+    width: 600px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: var(--box-shadow);
+    width: 100%;
+    min-height: 70vh;
+}
+.formControl1{
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fieldsDiv1{
+    margin-bottom: 20px;
+    margin-top: 0px;
+    height: 50px;
+}
+.fieldsDiv2{
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+.buttonF{
+    background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    width: 15%;
+}
+.btnDivF{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

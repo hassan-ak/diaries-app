@@ -11,6 +11,12 @@ import { useAppDispatch } from '../../store';
 import { setAuthState } from "../auth/authSlice";
 // Components imports
 import { Diaries } from '../diary/Diaries';
+// Reducer Imports
+import { RootState } from '../../rootReducer';
+// Redux Imports
+import { useSelector } from 'react-redux';
+import { Editor } from '../entry/Editor';
+import { setCanEdit } from '../entry/editorSlice';
 
 // Styling for LogOut button
 const useStyles = makeStyles((theme) => ({
@@ -26,6 +32,12 @@ const Home = () => {
     const classes = useStyles();
     // use displatch to use store functions
     const dispatch = useAppDispatch();
+    // use data from store
+    const { canEdit } = useSelector((state: RootState) => state.editor);
+    const saveEntry = async () => {
+        dispatch(setAuthState(false))
+        dispatch(setCanEdit(false))
+    }
     return (
         <div>
             {/* LogOut Button */}
@@ -38,7 +50,7 @@ const Home = () => {
                                     disableRipple
                                     aria-label="Sign Out"
                                     className={classes.lgelem}
-                                    onClick={()=>(dispatch(setAuthState(false)))}
+                                    onClick={()=>saveEntry()}
                                 >
                                     <PowerSettingsNewIcon />
                                 </Button>
@@ -47,7 +59,7 @@ const Home = () => {
                     </Grid>  
                 </Grid>
             </div>
-            <Diaries/>
+            {canEdit ? <Editor/>: <Diaries/>}
         </div>
     )
 }
