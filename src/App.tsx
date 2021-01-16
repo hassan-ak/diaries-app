@@ -2,14 +2,16 @@
 // React Imports
 import React from 'react';
 // Component Imports
+import Header from './components/Header';
+import Footer from './components/Footer';
 // Styles Imports
 import './App.css';
-import Header from './components/Header';
 
 function App() {
   return (
     <div>
       <Header/>
+      <Footer/>
     </div>
   );
 }
