@@ -1,6 +1,6 @@
 // Imports
 // React Imports
-import React, { FC, useState} from 'react';
+import React, { FC, useState } from 'react';
 // Formik Imports
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 // Yup imports
@@ -55,7 +55,7 @@ const Auth: FC = () => {
                             .email("Invalid Email address")
                     })}
                     // onSubmit function
-                    onSubmit={(values, {resetForm}) => {
+                    onSubmit={(values, { resetForm }) => {
                         setLoading(true)
                         const path = isLogin ? "/auth/login" : "/auth/signup";
                         http

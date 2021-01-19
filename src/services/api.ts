@@ -17,7 +17,7 @@ http.interceptors.response.use(
     // in case api call return valid data
     async (response: AxiosResponse): Promise<any> => {
         if (response.status >= 200 && response.status < 300) {
-        return response.data;
+            return response.data;
         }
     },
     // in case api call return an error
@@ -32,7 +32,7 @@ http.interceptors.response.use(
                 showAlert(response.data?.data?.message, 'error');
                 return null;
             }
-        // Handle request error
+            // Handle request error
         } else if (request) {
             showAlert('Request failed. Please try again.', 'error');
             return null;

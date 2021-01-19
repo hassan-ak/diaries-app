@@ -17,14 +17,14 @@ import http from '../../services/api';
 // Interfaces Imports
 import { Entry } from '../../interfaces/entry.interface';
 // Materail Ui Imports
+import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import { Card, Grid } from '@material-ui/core';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 // Dy js imports
 import dayjs from 'dayjs';
-///////
-import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
+// Component Imposrt
 import { Editor } from '../entry/Editor';
 
 // Styles for power off button
@@ -42,7 +42,7 @@ const DiaryEntriesList: FC = () => {
   const dispatch = useAppDispatch();
   // use data from store
   const { canEdit } = useSelector((state: RootState) => state.editor);
-  const { currentlyEditing: entry} = useSelector((state: RootState) => state.editor);
+  const { currentlyEditing: entry } = useSelector((state: RootState) => state.editor);
   const { entries } = useSelector((state: RootState) => state);
   const [viewDetails, setViewDetails] = useState(false)
   // power off button action
@@ -94,64 +94,64 @@ const DiaryEntriesList: FC = () => {
 
       {canEdit === false ?
         <div className="entries">
-        {viewDetails === false ?
-          <div>
-            <header className="moveBack">
-              <Link to="/">
+          {viewDetails === false ?
+            <div>
+              <header className="moveBack">
+                <Link to="/">
+                  <Button
+                    disableRipple
+                    aria-label="last Page"
+                    className={classes.lgelem}
+                  >
+                    <KeyboardBackspaceIcon fontSize="large" />
+                  </Button>
+                </Link>
+              </header>
+              <div className="entriesContainer">
+                <h2 className="entriesTitle">Entries List</h2>
+                <div className="entriesGrid">
+                  {entries.map(
+                    (entry) => (
+                      <div key={entry.id} className="entryCard" onClick={() => { dispatch(setCurrentlyEditing(entry)); setViewDetails(true); }}>
+                        <div><p><strong>{entry.title}</strong></p></div>
+                      </div>
+                    )
+                  )}
+                </div>
+              </div>
+            </div>
+            :
+            <div className="detailsContainer">
+              <header className="moveBack1">
                 <Button
                   disableRipple
-                  aria-label="last Page"
+                  aria-label="Sign Out"
                   className={classes.lgelem}
+                  onClick={() => setViewDetails(false)}
                 >
                   <KeyboardBackspaceIcon fontSize="large" />
                 </Button>
-              </Link>
-            </header>
-            <div className="entriesContainer">
-              <h2 className="entriesTitle">Entries List</h2>
-              <div className="entriesGrid">
-                {entries.map(
-                  (entry) => (
-                    <div key={entry.id} className="entryCard" onClick={() => { dispatch(setCurrentlyEditing(entry)); setViewDetails(true);}}>
-                      <div><p><strong>{entry.title}</strong></p></div>
-                    </div>
-                  )
-                )}
-              </div>
-            </div> 
-          </div>
-        :
-          <div className="detailsContainer">
-            <header className="moveBack1">
-              <Button
-                disableRipple
-                aria-label="Sign Out"
-                className={classes.lgelem}
-                onClick={()=>setViewDetails(false)}
-              >
-                <KeyboardBackspaceIcon fontSize="large" />
-              </Button>
-            </header>
-            <div className="detailsDiv">
-              <h3 className="detailsDivh">{entry?.title}</h3>
-              <p className="para">{entry?.content}</p>
-              <div className="btzDiv">
-                <Button
-                  variant="contained"
-                  className="buttonZ"
-                  onClick={()=>dispatch(setCanEdit(true))}
-                >
-                  < EditIcon/>
-                </Button>
+              </header>
+              <div className="detailsDiv">
+                <h3 className="detailsDivh">{entry?.title}</h3>
+                <p className="para">{entry?.content}</p>
+                <div className="btzDiv">
+                  <Button
+                    variant="contained"
+                    className="buttonZ"
+                    onClick={() => dispatch(setCanEdit(true))}
+                  >
+                    < EditIcon />
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        }
-      </div>
-      :
-        <Editor/>
+          }
+        </div>
+        :
+        <Editor />
       }
-    
+
     </div>
   );
 };

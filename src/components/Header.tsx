@@ -29,10 +29,10 @@ export default function Header() {
     // component return
     return (
         <div className={classes.root}>
-            <AppBar position="static" elevation={0} style={{ background: 'none', border:'none' }}>
+            <AppBar position="static" elevation={0} style={{ background: 'none', border: 'none' }}>
                 <Toolbar>
                     <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="timer">
-                        <BookIcon style={{ fontSize: 40 }}/>
+                        <BookIcon style={{ fontSize: 40 }} />
                     </IconButton>
                     <Typography variant="h5" className={classes.title}>
                         Diaries App

@@ -37,6 +37,6 @@ const auth = createSlice({
 });
 
 // Actions export
-export const {saveToken,clearToken,setAuthState}=auth.actions;
+export const { saveToken, clearToken, setAuthState } = auth.actions;
 // reducer Export
 export default auth.reducer;

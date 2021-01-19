@@ -11,7 +11,7 @@ const user = createSlice({
     reducers: {
         // reducer action to setUser
         setUser(state, { payload }: PayloadAction<User | null>) {
-            return state=(payload!=null)?payload:null;
+            return state = (payload != null) ? payload : null;
         },
     },
 });

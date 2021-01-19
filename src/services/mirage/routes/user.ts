@@ -60,7 +60,7 @@ const signup = (schema: any, req: Request): AuthResponse | Response => {
 };
 
 // Functions exports 
-const lsFun={
+const lsFun = {
     login,
     signup
 }

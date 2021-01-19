@@ -12,10 +12,10 @@ const useStyles = makeStyles((theme) => ({
         top: 'auto',
         bottom: 0,
         boxShadow: 'none',
-        display:'flex',
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:'10px'
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: '10px'
     },
     textContainer: {
         flexGrow: 1,

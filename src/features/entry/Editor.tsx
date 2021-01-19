@@ -26,9 +26,9 @@ const useQontoStepIconStyles = makeStyles({
     root: {
         color: '#eaeaf0',
         display: 'flex',
-        flexDirection:'column',
+        flexDirection: 'column',
         height: 22,
-        alignItems: 'centre', 
+        alignItems: 'centre',
     },
     active: {
         color: '#784af4',
@@ -113,7 +113,7 @@ function ColorlibStepIcon(props: any) {
     const icons: any = {
         1: <EditIcon />,
         2: <SaveIcon />,
-};
+    };
     return (
         <div
             className={clsx(classes.root, {
@@ -133,12 +133,12 @@ ColorlibStepIcon.propTypes = {
 function getSteps() {
     return ['Edit', 'Save'];
 }
-function getStepContent(step: Number, setStep:any, formValues:any, setFormValues:any, updateEditedEntry:any, editedEntry:any, activeDiaryId:any, entry:any) {
+function getStepContent(step: Number, setStep: any, formValues: any, setFormValues: any, updateEditedEntry: any, editedEntry: any, activeDiaryId: any, entry: any) {
     switch (step) {
         case 0:
-            return <Step01 submit={setStep} prevValues={formValues} setFormValues={setFormValues} updateEditedEntry={updateEditedEntry} editedEntry={editedEntry}/>;
+            return <Step01 submit={setStep} prevValues={formValues} setFormValues={setFormValues} updateEditedEntry={updateEditedEntry} editedEntry={editedEntry} />;
         case 1:
-            return <Step02 submit={setStep} prevValues={formValues} setFormValues={setFormValues} activeDiaryId={activeDiaryId} entry={entry} editedEntry={editedEntry}/>;
+            return <Step02 submit={setStep} prevValues={formValues} setFormValues={setFormValues} activeDiaryId={activeDiaryId} entry={entry} editedEntry={editedEntry} />;
         default:
             return 'Some Error Happened, Start Again';
     }
@@ -152,7 +152,7 @@ export const Editor = () => {
     const initialValues: any = {
         title: editedEntry?.title ?? '',
         content: editedEntry?.content ?? '',
-    }  
+    }
     // Update entry to be edited when ever selected entry changes
     useEffect(() => {
         updateEditedEntry(entry);
@@ -172,7 +172,7 @@ export const Editor = () => {
                         </Step>
                     ))}
                 </Stepper>
-                {getStepContent(activeStep,setActiveStep,formValues,setFormValues,updateEditedEntry,editedEntry,activeDiaryId,entry)}
+                {getStepContent(activeStep, setActiveStep, formValues, setFormValues, updateEditedEntry, editedEntry, activeDiaryId, entry)}
             </div>
         </div>
     );

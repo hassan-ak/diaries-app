@@ -68,8 +68,8 @@ export const Diaries = () => {
                         <div className="cBtnDiv">
                             <Button
                                 variant="contained"
-                                className="buttonN"
-                                onClick={()=>setOpenN(true)}
+                                className="buttonND"
+                                onClick={() => setOpenN(true)}
                             >
                                 Create New Diary
                             </Button>
@@ -77,97 +77,97 @@ export const Diaries = () => {
                         {diaries.map((diary, idx) => (
                             diary.type === 'public' || diary.userId === user?.id ?
                                 <DiaryTile key={idx} diary={diary} />
-                            : null
+                                : null
                         ))}
                     </div>
                 </div>
-            :
+                :
                 // Editor to add new diary
                 <div>
                     <div className="cndContainer">
                         <div className="steperContainer">
-                        <h2>Create Diary</h2>
-                        <Formik
-                            // inital state
-                            initialValues={initialValues}
-                            // Form validation
-                            validationSchema={Yup.object({
-                                title: Yup.string()
-                                    .required('Title is Required')
-                                    .max(16, 'Title cannot be longer than 16 characters.')
-                                    .min(3, 'Title cannot be smaller than 3 characters.'),
-                                type: Yup.string()
-                                    .required("Kindly Speicfy Type")
-                            })}
-                            // onSubmit function
-                            onSubmit={(values) => {
-                                const createDiary = async () => {
-                                    if (values) {
-                                        const { diary, user: _user } = await http.post<Partial<Diary>, { diary: Diary; user: User }>
-                                        ('/diaries/', {
-                                            title: values.title,
-                                            type: values.type,
-                                            userId: user?.id,
-                                        });
-                                        if (diary && user) {
-                                            dispatch(addDiary([diary] as Diary[]));
-                                            dispatch(addDiary([diary] as Diary[]));
-                                            dispatch(setUser(_user));
+                            <h2>Create Diary</h2>
+                            <Formik
+                                // inital state
+                                initialValues={initialValues}
+                                // Form validation
+                                validationSchema={Yup.object({
+                                    title: Yup.string()
+                                        .required('Title is Required')
+                                        .max(16, 'Title cannot be longer than 16 characters.')
+                                        .min(3, 'Title cannot be smaller than 3 characters.'),
+                                    type: Yup.string()
+                                        .required("Kindly Speicfy Type")
+                                })}
+                                // onSubmit function
+                                onSubmit={(values) => {
+                                    const createDiary = async () => {
+                                        if (values) {
+                                            const { diary, user: _user } = await http.post<Partial<Diary>, { diary: Diary; user: User }>
+                                                ('/diaries/', {
+                                                    title: values.title,
+                                                    type: values.type,
+                                                    userId: user?.id,
+                                                });
+                                            if (diary && user) {
+                                                dispatch(addDiary([diary] as Diary[]));
+                                                dispatch(addDiary([diary] as Diary[]));
+                                                dispatch(setUser(_user));
+                                            }
                                         }
-                                    }
-                                    setOpenN(false)
-                                };
-                                createDiary()
-                            }}
-                        >
-                            < Form className="formControl">
-                                <div className="fieldsDiv">
-                                    <Field
-                                        as={TextField}
-                                        variant="outlined"
-                                        className="fields"
-                                        name="title"
-                                        label="Title *"
-                                        autoComplete="off"
-                                        helperText={<ErrorMessage name="title">{msg => <span className="error">{msg}</span>}</ErrorMessage>}
-                                    />
-                                </div>
-                                <div className="divG">
-                                    <div>Type</div>
-                                    <div role="group" className="fieldsG">
-                                        <label>
-                                            <Field type="radio" name="type" value="private" />
+                                        setOpenN(false)
+                                    };
+                                    createDiary()
+                                }}
+                            >
+                                < Form className="formControl">
+                                    <div className="fieldsDiv">
+                                        <Field
+                                            as={TextField}
+                                            variant="outlined"
+                                            className="fields"
+                                            name="title"
+                                            label="Title *"
+                                            autoComplete="off"
+                                            helperText={<ErrorMessage name="title">{msg => <span className="error">{msg}</span>}</ErrorMessage>}
+                                        />
+                                    </div>
+                                    <div className="divG">
+                                        <div>Type</div>
+                                        <div role="group" className="fieldsG">
+                                            <label>
+                                                <Field type="radio" name="type" value="private" />
                                             Private
                                         </label>
-                                        <label>
-                                            <Field type="radio" name="type" value="public" />
+                                            <label>
+                                                <Field type="radio" name="type" value="public" />
                                             Public
                                         </label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="btnDiv">
-                                    <Button
-                                        variant="contained"
-                                        className="buttonN"
-                                        type="submit"
-                                    >
-                                        Create
+                                    <div className="btnDiv">
+                                        <Button
+                                            variant="contained"
+                                            className="buttonND"
+                                            type="submit"
+                                        >
+                                            Create
                                     </Button>
-                                </div>
-                                <div className="btnDiv">
-                                    <Button
-                                        variant="contained"
-                                        className="buttonN"
-                                        onClick={()=>setOpenN(false)}
-                                    >
-                                        Cancel
+                                    </div>
+                                    <div className="btnDiv">
+                                        <Button
+                                            variant="contained"
+                                            className="buttonNDC"
+                                            onClick={() => setOpenN(false)}
+                                        >
+                                            Cancel
                                     </Button>
-                                </div>
-                            </Form>
-                        </Formik>
-                    </div>
-                </div >
-            </div>}
+                                    </div>
+                                </Form>
+                            </Formik>
+                        </div>
+                    </div >
+                </div>}
         </div>
     )
 }

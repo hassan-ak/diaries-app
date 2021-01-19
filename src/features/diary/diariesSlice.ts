@@ -15,7 +15,7 @@ const diaries = createSlice({
             const diariesToSave = payload.filter((diary) => {
                 return state.findIndex((item) => item.id === diary.id) === -1;
             });
-        state.push(...diariesToSave);
+            state.push(...diariesToSave);
         },
         // reducer action to updatediary
         updateDiary(state, { payload }: PayloadAction<Diary>) {

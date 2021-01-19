@@ -21,8 +21,8 @@ import { setCanEdit } from '../entry/editorSlice';
 // Styling for LogOut button
 const useStyles = makeStyles((theme) => ({
     lgelem: {
-        backgroundColor:'transparent',
-        color:"white"
+        backgroundColor: 'transparent',
+        color: "white"
     },
 }));
 
@@ -45,21 +45,21 @@ const Home = () => {
                 <Grid container justify="flex-end">
                     <Grid item xs={3} >
                         <Grid container justify="flex-end">
-                            <Grid item xs={8} md={6}  component={Card} elevation={0} className={classes.lgelem}>
-                                <Button 
+                            <Grid item xs={8} md={6} component={Card} elevation={0} className={classes.lgelem}>
+                                <Button
                                     disableRipple
                                     aria-label="Sign Out"
                                     className={classes.lgelem}
-                                    onClick={()=>saveEntry()}
+                                    onClick={() => saveEntry()}
                                 >
                                     <PowerSettingsNewIcon />
                                 </Button>
                             </Grid>
                         </Grid>
-                    </Grid>  
+                    </Grid>
                 </Grid>
             </div>
-            {canEdit ? <Editor/>: <Diaries/>}
+            {canEdit ? <Editor /> : <Diaries />}
         </div>
     )
 }

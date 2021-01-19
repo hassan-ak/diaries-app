@@ -36,41 +36,44 @@ const DiaryTile: FC<Props> = (props) => {
     // Function to save changes
     const saveChanges = () => {
         http
-        .put<Diary, Diary>(`/diaries/${diary.id}`, diary)
-        .then((diary) => {
-            if (diary) {
-                dispatch(updateDiary(diary));
-                showAlert('Saved!', 'success');
-            }
-        })
-        .finally(() => {
-            setIsEditing(false);
-        });
+            .put<Diary, Diary>(`/diaries/${diary.id}`, diary)
+            .then((diary) => {
+                if (diary) {
+                    dispatch(updateDiary(diary));
+                    showAlert('Saved!', 'success');
+                }
+            })
+            .finally(() => {
+                setIsEditing(false);
+            });
     };
 
     return (
         <div className="diary-tile">
             <h3 className="title" title="Click to edit" onClick={() => setIsEditing(true)}>
                 {isEditing ? (
-                    <input value={diary.title} onChange={(e) => { setDiary({ ...diary, title: e.target.value,});}} onKeyUp={(e) => { if (e.key === 'Enter') { saveChanges(); } }}/>
+                    <input value={diary.title} onChange={(e) => { setDiary({ ...diary, title: e.target.value, }); }} onKeyUp={(e) => { if (e.key === 'Enter') { saveChanges(); } }} />
                 ) : (
-                    <span>{diary.title}</span>
-                )}
+                        <span>{diary.title}</span>
+                    )}
             </h3>
             <p className="subtitle">{type.charAt(0).toUpperCase() + type.slice(1)}</p>
             <p className="subtitle">{totalEntries ?? '0'} saved entries</p>
             <div className="tilebtnDiv">
-                <Button 
+                <Button
+                    style={{ color: "white" }}
+                    disableRipple
                     onClick={() => {
                         dispatch(setCanEdit(true));
                         dispatch(setActiveDiaryId(diary.id as string));
                         dispatch(setCurrentlyEditing(null));
                     }}
                 >
-                    <AddCircleOutlineIcon/>
+                    <AddCircleOutlineIcon />
                 </Button>
                 <Link to={`diary/${diary.id}`}>
-                    <Button 
+                    <Button
+                        style={{ color: "white" }}
                         disableRipple
                         aria-label="View all Entries"
                     >

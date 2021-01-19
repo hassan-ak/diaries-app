@@ -36,7 +36,7 @@ function App() {
           }
         />
         <Route path="diary" element={<Cat />}>
-          <Route path=":id" element={<Suspense fallback={<Loader/>}><DiaryEntriesList/></Suspense>}/>
+          <Route path=":id" element={<Suspense fallback={<Loader />}><DiaryEntriesList /></Suspense>} />
         </Route>
       </Routes>
       <Footer />

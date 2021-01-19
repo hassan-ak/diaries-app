@@ -126,6 +126,14 @@ body{
 }
 
 /* Create Diary */
+.buttonND{
+    background: linear-gradient(45deg, #8dfe6b 30%, #7bff53 90%);
+    width: 50%;
+}
+.buttonNDC{
+    background: linear-gradient(45deg, #fe6b6b 30%, #ff5353 90%);
+    width: 50%;
+}
 .cndContainer{
     display: flex;
     flex-direction: column;
@@ -179,7 +187,7 @@ body{
 
 /* Diary Tile */
 .diary-tile{
-    background-color: #9ab5ff;
+    background-color: #717fce;
     width: 100%;
     border-radius: 20px;
     padding: 0px 10px 10px 10px;
@@ -213,7 +221,6 @@ body{
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(16, 109, 101); 
 }
-
 
 /* Editor */
 .aEContainer{
@@ -257,6 +264,18 @@ body{
     background: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
     width: 15%;
 }
+.buttonFF{
+    background: linear-gradient(45deg, #8dfe6b 30%, #7bff53 90%);
+    width: 15%;
+}
+.buttonFE{
+    background: linear-gradient(45deg, #756bfe 30%, #5356ff 90%);
+    width: 15%;
+}
+.buttonFB{
+    background: linear-gradient(45deg, #fe6b6b 30%, #ff5353 90%);
+    width: 15%;
+}
 .btnDivF{
     display: flex;
     justify-content: space-evenly;
@@ -292,8 +311,8 @@ body{
     justify-content: center;
     align-items: center;
 }
-
 .entryCard {
+    border-radius: 20px;
     margin: 0.5% 0.5% !important;
     display: flex;
     justify-content: left;
@@ -304,14 +323,12 @@ body{
     padding: 10px;
     min-width: 200px;
     height: 50px;
-
 }
 .details{
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
-
 .moveBack1{
     display: flex;
     justify-content: left;

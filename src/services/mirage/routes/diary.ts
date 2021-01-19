@@ -11,7 +11,7 @@ import { Entry } from "../../../interfaces/entry.interface";
 import dayjs from "dayjs";
 
 // Create Diary function
-export const create = ( schema: any, req: Request ): { user: User; diary: Diary } | Response => {
+export const create = (schema: any, req: Request): { user: User; diary: Diary } | Response => {
     // Try to create diary
     try {
         // Diary entries
@@ -80,7 +80,7 @@ export const getDiaries = (schema: any, req: Request): Diary[] | Response => {
 };
 
 // Functionn to add new entry
-export const addEntry = ( schema: any, req: Request ): { diary: Diary; entry: Entry } | Response => {
+export const addEntry = (schema: any, req: Request): { diary: Diary; entry: Entry } | Response => {
     // try and catch method
     try {
         // get diary based on user
@@ -131,7 +131,7 @@ export const updateEntry = (schema: any, req: Request): Entry | Response => {
 };
 
 // Get entries in the app
-export const getEntries = ( schema: any, req: Request ): { entries: Entry[] } | Response => {
+export const getEntries = (schema: any, req: Request): { entries: Entry[] } | Response => {
     try {
         const diary = schema.diaries.find(req.params.id);
         return diary.entry;
